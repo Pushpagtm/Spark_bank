@@ -6,6 +6,7 @@ import Customer from './components/Customer';
 import Transactions from './components/Transactions';
 import TransferMoney from './components/TransferMoney';
 import Service from './components/Service';
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
 
       
         </Routes>
+        <Footer/>
       </Router>
    
     </div>
