@@ -1,0 +1,14 @@
+.customers_table {
+    width: 90vw;
+    height: 100vh;
+    font-family: 'Poppins';
+   
+}
+
+.customers_table tr{
+    text-align: center;
+}
+
+.customers_table td{
+    text-align: center;
+}

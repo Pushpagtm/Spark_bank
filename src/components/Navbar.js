@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/navbar.css';
+import { Link } from 'react-router-dom';
 function Navbar(props) {
     return (
         <nav>
@@ -10,9 +11,9 @@ function Navbar(props) {
             </div>
             <div className='pages'>
                 <ul className="lists">
-                    <li className='list-1'><a href='/customer'> Accounts</a></li>
-                    <li className='list-2'><a href='/moneyTransfer'>Transfer funds</a></li>
-                    <li className='list-3'><a href='/transactions'>Transactions</a></li>
+                    <li className='list-1'><Link to='/customer'> Accounts</Link></li>
+                    <li className='list-2'><Link to='/moneyTransfer'>Transfer funds</Link></li>
+                    <li className='list-3'><Link to='/transactions'>Transactions</Link></li>
                 </ul>
             </div>
         </nav>

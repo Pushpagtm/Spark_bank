@@ -3,7 +3,6 @@ import '../styles/service.css';
 import { BsFillFilePersonFill } from 'react-icons/bs';
 import {BiTransfer} from 'react-icons/bi';
 import {FcMoneyTransfer} from 'react-icons/fc';
-// import {serviceData} from '../components/ServiceData';
 function Service({Data}) {
      const ServiceData=[
         {

@@ -17,9 +17,9 @@ function App() {
       <Service/>
       
         <Routes>
-       <Route path='/customer' Component={Customer}/>
-       <Route path='/transaction' Component={Transactions}/>
-       <Route path='/ moneyTransfer' Component={TransferMoney}/>
+       <Route path='/customer'  element={<Customer/>}/>
+       <Route path='/transaction' element={<Transactions/>}/>
+       <Route path='/ moneyTransfer'element={<TransferMoney/>}/>
 
       
         </Routes>

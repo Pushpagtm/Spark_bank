@@ -1,7 +1,6 @@
 import React from 'react';
 import {AiFillGithub,AiFillLinkedin,AiFillInstagram} from 'react-icons/ai';
 import "../styles/footer.css";
-// import { Link } from 'react-router-dom';
 function Footer(props) {
     return (
         <div>
