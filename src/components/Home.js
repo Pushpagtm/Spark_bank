@@ -3,7 +3,6 @@ import '../styles/home.css';
 function Home(props) {
     return (
         <div>
-          
         <div className='container'>
         <div className="left">
                 <div className="title">

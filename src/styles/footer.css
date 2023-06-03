@@ -1,0 +1,17 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(71, 68, 68);
+  color: white;
+}
+ul {
+  font-size: 20px;
+  padding: 11px;
+}
+.icons {
+  padding: 24px;
+}
+
+.icons i {
+  padding: 20px;
+}

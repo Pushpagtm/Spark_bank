@@ -6,6 +6,7 @@ import Customer from './components/Customer';
 import Transactions from './components/Transactions';
 import TransferMoney from './components/TransferMoney';
 import Service from './components/Service';
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
@@ -16,12 +17,13 @@ function App() {
       <Service/>
       
         <Routes>
-       <Route path='/customer' Component={Customer}/>
-       <Route path='/transaction' Component={Transactions}/>
-       <Route path='/ moneyTransfer' Component={TransferMoney}/>
+       <Route path='/customer'  element={<Customer/>}/>
+       <Route path='/transaction' element={<Transactions/>}/>
+       <Route path='/ moneyTransfer'element={<TransferMoney/>}/>
 
       
         </Routes>
+        <Footer/>
       </Router>
    
     </div>
