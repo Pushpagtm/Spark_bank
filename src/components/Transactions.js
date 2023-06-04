@@ -1,21 +1,23 @@
 import React,{useState} from 'react';
 import '../styles/customer.css';
-import { collection, getDoc } from 'firebase/firestore';
-import { database } from '../firebaseConfig';
+// import { collection, getDoc } from 'firebase/firestore';
+// import { database } from '../firebase';
 
 function Transactions(props) {
-    const data=collection(database,'customers');
-const[done,setDone]=useState([]);
-const getCustomers=async ()=>{
-    const res =await getDoc(data);
-    const done=res.docs.map((item)=>{
-        return { ...item.data()}
-    });
-    setDone(done)
-}
-getCustomers()
+//     const data=collection(database,'customers');
+// const[done,setDone]=useState([]);
+// const getCustomers=async ()=>{
+//     const res =await getDoc(data);
+//     const done=res.docs.map((item)=>{
+//         return { ...item.data()}
+//     });
+//     setDone(done)
+// }
+// getCustomers()
     return (
-        <div>
+        <>
+        <p>hello</p>
+        {/* <div>
              <div >
              <table className='customers_table'>
         <tr className='headings'>
@@ -40,7 +42,8 @@ getCustomers()
         
         </table>
         </div>
-        </div>
+        </div> */}
+        </>
     );
 }
 
