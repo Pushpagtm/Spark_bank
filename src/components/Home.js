@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/home.css';
+import Service from '../components/Service';
+// import TransferMoney from './TransferMoney';
+// import Customer from './Customer';
 function Home(props) {
     return (
         <div>
@@ -22,7 +25,9 @@ function Home(props) {
 
 
         </div>
-            
+        <Service/>
+        {/* <TransferMoney/> */}
+       
         </div>
     );
 }
