@@ -19,7 +19,7 @@ function Navbar(props) {
                 </ul>
             </div>
         </nav>
-        <Home/>
+        {/* <Home/> */}
         </>
     );
 }

@@ -1,20 +1,41 @@
-import React, { useState } from 'react';
-import '../styles/customer.css';
-import { collection, getDoc } from 'firebase/firestore';
-import { database } from '../firebaseConfig';
+import React, { useEffect, useState } from "react";
+import "../styles/customer.css";
+import firebase from "../firebase";
 function Customer(props) {
-    const data=collection(database,'customers');
-    const[done,setDone]=useState([]);
-    const getCustomers=async ()=>{
-        const res =await getDoc(data);
-        const done=res.docs.map((item)=>{
-            return { ...item.data()}
-        });
-        setDone(done)
-    }
-getCustomers()
-    return (
-        <div >
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await firebase
+          .firestore()
+          .collection("sparkbank")
+          .get();
+        const fetchedData = response.docs.map((doc) => doc.data());
+        setData(fetchedData);
+
+        // const collectionsRef = firebase.firestore().listCollections();
+        // const fetchedCollections = await collectionsRef;
+        // const collectionNames = fetchedCollections.map((collection) => collection.id);
+
+        console.log("all the collections", fetchedData);
+        // setData(collectionNames);
+
+        //   console.log(fetchData,"fetching datas===============================")
+        //   setData(fetchedData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      {console.log(data, "=====================all data")}
+      <p>hello</p>
+
+      {/* <div >
              <table className='customers_table'>
         <tr className='headings'>
           <th>Serial number</th>
@@ -37,8 +58,9 @@ getCustomers()
         }
         
         </table>
-        </div>
-    );
+        </div> */}
+    </>
+  );
 }
 
 export default Customer;

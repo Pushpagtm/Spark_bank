@@ -6,6 +6,7 @@ import Transactions from "./components/Transactions";
 import TransferMoney from "./components/TransferMoney";
 
 import Footer from "./components/Footer";
+import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
@@ -13,8 +14,8 @@ function App() {
         <Navbar />
 
         <Routes>
-        
-          <Route path="/customer" component={Customer} element={<Customer/>} />
+        <Route path="/"  element={<Home/>} />
+          <Route path="/customer" element={<Customer/>} />
           <Route path="/transaction" element={<Transactions />} />
           <Route path="/moneyTransfer" element={<TransferMoney />} />
         
