@@ -26,7 +26,7 @@ function Customer(props) {
         //   console.log(fetchData,"fetching datas===============================")
         //   setData(fetchedData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+       console.error("Error occured....",error)
       }
     };
     fetchData();
@@ -35,7 +35,7 @@ function Customer(props) {
   return (
     <>
       {console.log(data, "=====================all data")}
-      <p>hello</p>
+      <p>fetched data</p>
 
       {/* <div >
              <table className='customers_table'>

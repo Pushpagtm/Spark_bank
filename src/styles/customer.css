@@ -1,14 +1,22 @@
 .customers_table {
-    width: 90vw;
-    height: 100vh;
-    font-family: 'Poppins';
-   
+  width: 90vw;
+  height: 100vh;
+  font-family: "Poppins";
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+} 
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
-.customers_table tr{
-    text-align: center;
+.customers_table tr {
+  text-align: center;
 }
 
-.customers_table td{
-    text-align: center;
+.customers_table td {
+  text-align: center;
 }
