@@ -39,8 +39,10 @@ nav {
   .list-3 {
     transition: .6s;
   }
-  .bank-logo {
-    width: 6rem;
+  .bank_logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
     position: relative;
     left: 30px;
   }

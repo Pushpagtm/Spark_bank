@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../styles/customer.css";
+import { collection, getDocs } from 'firebase/firestore'
 import firebase from "../firebase";
 function Customer(props) {
   const [data, setData] = useState([]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await firebase
           .firestore()
-          .collection("sparkbank")
+          .collection("customers")
           .get();
         const fetchedData = response.docs.map((doc) => doc.data());
         setData(fetchedData);
