@@ -7,18 +7,17 @@ import TransferMoney from "./components/TransferMoney";
 
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import { CustomerData } from "./components/CustomerData";
 function App() {
   return (
     <div className="App">
       <Router>
         <Navbar />
-
         <Routes>
         <Route path="/"  element={<Home/>} />
-          <Route path="/customer" element={<Customer/>} />
+          <Route path="/customer" element={<Customer/>} CustomerData={CustomerData} />
           <Route path="/transaction" element={<Transactions />} />
           <Route path="/moneyTransfer" element={<TransferMoney />} />
-        
         </Routes>
         <Footer />
       </Router>

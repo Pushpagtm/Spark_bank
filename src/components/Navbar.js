@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/navbar.css';
 import { Link } from 'react-router-dom';
-import Home from './Home';
+import logo from '../image/logo.png';
 function Navbar(props) {
     return (
         <>
         <nav>
              <div className="img-div">
                 <a href="/">
-                    <img src='' alt="Bank Logo" className='bank-logo' />
+                    <img src={logo} alt="Bank Logo" className='bank_logo' />
                 </a>
             </div>
             <div className='pages'>
