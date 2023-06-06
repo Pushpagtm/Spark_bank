@@ -8,6 +8,8 @@ import TransferMoney from "./components/TransferMoney";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import { CustomerData } from "./components/CustomerData";
+import NewCustomer from "./components/NewCustomer";
+import Read from "./components/Read";
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
           <Route path="/customer" element={<Customer/>} CustomerData={CustomerData} />
           <Route path="/transaction" element={<Transactions />} />
           <Route path="/moneyTransfer" element={<TransferMoney />} />
+          <Route path="/newcustomer" element={<NewCustomer/>} />
+          <Route path="/read/:id" element={<Read/>} />
         </Routes>
         <Footer />
       </Router>

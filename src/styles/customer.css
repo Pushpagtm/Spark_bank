@@ -1,7 +1,8 @@
 .customers_table {
-  width: 90vw;
+  width: 100vw;
   height: 100vh;
   font-family: "Poppins";
+  
 }
 tr:nth-child(even) {
   background-color: #dddddd;
@@ -12,6 +13,18 @@ th {
   text-align: left;
   padding: 8px;
 }
+.action{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.link{
+  padding: 10px;
+  text-decoration: none;
+background-color: #1e9bdf;
+border-radius: 5px;
+color: white;
+}
 
 .customers_table tr {
   text-align: center;
@@ -19,4 +32,19 @@ th {
 
 .customers_table td {
   text-align: center;
+}
+.newbtn{
+  padding: 20px;
+  display: flex;
+  justify-content: end;
+  
+}
+.newbtn button{
+  padding: 10px;
+    background: #1e9bdf;
+    border: none;
+    color: white;
+    border-radius: 11px;
+    cursor: pointer;
+
 }
