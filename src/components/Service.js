@@ -8,7 +8,7 @@ function Service({Data}) {
         {
             icon: <BsFillFilePersonFill size={80}/>,
             title:'Customers',
-            button:'View Customres',
+            button:'View Customers',
             link:'/customer'
         },
         {
@@ -20,7 +20,7 @@ function Service({Data}) {
         {
             icon:<BiTransfer size={80}/>,
             title:'Transactions',
-            button:'All transaction are Displayed',
+            button:'All transactions',
             link:'/transaction'
         }
     ]
