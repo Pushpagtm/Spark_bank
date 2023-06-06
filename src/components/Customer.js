@@ -11,7 +11,7 @@ function Customer(props) {
       .then((res) => setDone(res.data))
       .catch((err) => console.log(err));
   }, []);
-console.log(done);
+
   return (
     <>
       <div >
@@ -31,12 +31,12 @@ console.log(done);
             
               <td>{item.id}</td>
               <td>{item.name}</td>
-              <td>{item.account_number}</td>
+              <td>{item.acc_number}</td>
               <td>{item.balance}</td>
               <td className="action">
               <Link  to={`/read/${item.id}`} className="link">Read</Link>
               <Link to={`/moneyTransfer/${item.id}`} className="link" >Transfer</Link>
-              <Link className="link">Delete</Link>
+            
               </td>
             </tr>
 

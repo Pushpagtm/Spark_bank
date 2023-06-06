@@ -11,7 +11,7 @@ function Home(props) {
                     <h2>The Spark Bank Limited</h2>
                 </div>
                 <div className="desc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi debitis quia cumque possimus, doloremque quaerat! Perferendis et eveniet, praesentium mollitia aliquam dolore placeat dolores architecto assumenda veritatis at laboriosam soluta debitis tempora.</p>
+                    <p>Spark Bank is commonly used as a sample bank in scenarios that involve showcasing the implementation of banking functionalities.Spark Bank may include features like customer accounts, transactions, balances.</p>
                 </div>
                 <button className='start-btn'>
                     <a href="/customer">

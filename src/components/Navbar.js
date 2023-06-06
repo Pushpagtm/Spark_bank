@@ -13,8 +13,9 @@ function Navbar(props) {
             </div>
             <div className='pages'>
                 <ul className="lists">
+                <li className='list-1'><Link to='/'>Home</Link></li>
                     <li className='list-1'><Link to='/customer'> Accounts</Link></li>
-                    <li className='list-2'><Link to='/moneyTransfer'>Transfer funds</Link></li>
+                 
                     <li className='list-3'><Link to='/transaction'>Transactions</Link></li>
                 </ul>
             </div>
