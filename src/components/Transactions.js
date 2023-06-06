@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import '../styles/customer.css';
-// import { collection, getDoc } from 'firebase/firestore';
-// import { database } from '../firebase';
+
 
 function Transactions(props) {
     const CustomerData=[
