@@ -16,16 +16,31 @@ function Read(props) {
     
     return (
         <div className='box'>
-      {  customer &&     <div className='innerbox'>
-            <h2>Customer Details</h2>
-            <h2>Customer ID:{customer.id}</h2>
-            <h2>Customer Name:{customer.name}</h2>
-            <h2>Account Number:{customer.acc_number}</h2>
-            <h2>Balance:{customer.balance}</h2>
-            <Link to='/customer' className='link'>Back</Link>
-
-
-            </div>}
+     
+            <div className='innerbox'>
+             <div className="item">
+              <img
+                src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                alt=""
+                className="itemImg"
+              />
+              
+              <div className="details">
+                <h1 className="itemTitle">{customer.name}</h1>
+                
+                <div className="detailItem">
+                  <span className="itemKey">Account Number:</span>
+                  <span className="itemValue">{customer.acc_number}</span>
+                </div>
+                <div className="detailItem">
+                  <span className="itemKey">Balance:</span>
+                  <span className="itemValue">{customer.balance}</span>
+                </div>
+                <Link to='/customer' className='link'>Back</Link>
+              
+              </div>
+            </div>
+            </div>
            
            
         </div>
