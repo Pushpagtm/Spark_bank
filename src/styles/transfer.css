@@ -20,7 +20,10 @@ form {
 
 form h2{
     font-family: poppins;
-    color: #1e30eb;
+    color: #6971cb;
+}
+label{
+    font-size: 25px;
 }
 
 form select {

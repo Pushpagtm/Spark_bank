@@ -34,7 +34,7 @@ function Customer(props) {
               <td>{item.acc_number}</td>
               <td>{item.balance}</td>
               <td className="action">
-              <Link  to={`/read/${item.id}`} className="link">Read</Link>
+              <Link  to={`/read/${item.id}`} className="link">View</Link>
               <Link to={`/moneyTransfer/${item.id}`} className="link" >Transfer</Link>
             
               </td>
