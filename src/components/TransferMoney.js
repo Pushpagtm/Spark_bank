@@ -92,29 +92,6 @@ function TransferMoney(props) {
       });
     }
   };
-  // const [values, setValues] = useState({
-  //   balance: "",
-  // });
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/read/" + id)
-  //     .then((res) => {
-  //       setValues(res.data[0].balance);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-  // const handleTransfer = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .put("http://localhost:8000/moneyTransfer/" + id, values)
-  //     .then((res) => {
-  //       navigate("/customer");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   return (
     <>
       <div className="box">
