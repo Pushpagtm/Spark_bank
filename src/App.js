@@ -19,7 +19,7 @@ function App() {
         <Route path="/"  element={<Home/>} />
           <Route path="/customer" element={<Customer/>} CustomerData={CustomerData} />
           <Route path="/transaction" element={<Transactions />} />
-          <Route path="/moneyTransfer/:id" element={<TransferMoney/>}  />
+          <Route path="/moneyTransfer" element={<TransferMoney/>}  />
           <Route path="/newcustomer" element={<NewCustomer/>} />
           <Route path="/read/:id" element={<Read/>} />
         </Routes>
