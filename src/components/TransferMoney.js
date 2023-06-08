@@ -7,78 +7,151 @@ import { useNavigate, useParams } from "react-router-dom";
 function TransferMoney(props) {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [done, setDone] = useState([]);
+  const [customers,setCustomers]=useState([]);
   const [sender,setSender]= useState("");
   const [receiver,setReceiver]= useState("");
-
+  const [bal,setBal]= useState("");
+  let correct=true;
+  let senderBalance=0;
   useEffect(() => {
     axios
       .get("http://localhost:8000/")
-      .then((res) => setDone(res.data))
+      .then((res) => setCustomers(res.data))
       .catch((err) => console.log(err));
   }, []);
 
- 
-  const [values, setValues] = useState({
-    balance: "",
-  });
+  const transfers=()=>{
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/read/" + id)
-      .then((res) => {
-        setValues(res.data[0].balance);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  const handleTransfer = (e) => {
-    e.preventDefault();
-    axios
-      .put("http://localhost:8000/moneyTransfer/" + id, values)
-      .then((res) => {
-        navigate("/customer");
-      })
-      .catch((err) => console.log(err));
+      console.log("Sender",sender);
+      console.log("Receiver",receiver);
+      console.log("Balance",bal);
+      if(sender==="" || receiver===""){
+        correct=false;
+        setSender("");
+        setReceiver("");
+        setBal("");
+        return(alert('Enter all Details.'))
+      }
+      if(bal===""){
+        correct=false;
+  
+        return(alert('Please Enter Amount.'))}
+        for(const val of customers)
+        {
+          if(val.name===sender){
+            senderBalance=val.balance;
+          }
+        }
+  
+        console.log("Sender balance",senderBalance);
+        if(senderBalance-bal<0){
+          correct=false;
+          setSender("");
+          setReceiver("");
+          setBal("");
+          return(alert('Not enough balance'))}
+  
+        if(correct===true){
+  
+      axios.post("http://localhost:8000/transaction",{
+        sender:sender,
+        receiver:receiver,
+        balance:bal
+      }).then(()=>{
+        console.log("Success");
+      });
+  
+      axios.put("http://localhost:8000/update",{
+        balance:bal,
+        receiver:receiver
+      }).then((response)=>{
+        setCustomers(
+          customers.map((val)=>{
+            return val.name===receiver?
+            {
+              id:val.id,
+              name:val.name,
+            
+              balance:parseInt(bal)+parseInt(val.balance),
+            }
+            :val.name===sender?
+            {
+              id:val.id,
+              name:val.name,
+              balance:parseInt(val.balance)-parseInt(bal),
+            }
+            :val;
+          })
+        );
+  
+        alert("Successful Transaction");
+      
+        setSender("");
+        setReceiver("");
+        setBal("");
+      });
+    }
   };
+  // const [values, setValues] = useState({
+  //   balance: "",
+  // });
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:8000/read/" + id)
+  //     .then((res) => {
+  //       setValues(res.data[0].balance);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  // const handleTransfer = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .put("http://localhost:8000/moneyTransfer/" + id, values)
+  //     .then((res) => {
+  //       navigate("/customer");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
       <div className="box">
-        <form onSubmit={handleTransfer}>
+        <form>
           <h2>Transfer Money</h2>
           <p>Transfer from:</p>
-          <select name="customers" id="customers1" placeholder="To">
-            {done.map((item, id) => {
-              return (
-                <option key={id} id="option1" value={item.name}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
+          <select name="senders" id="senders" value={sender} onChange={(e)=>{setSender(e.target.value)}}>
+              <option value=""></option>
+              {
+                customers.map((val,key)=>{
+                                return (
+                                  <option value={val.name} id={val.id} key={key}>{val.name}</option>
+                                )
+                              })
+
+              }
+            </select>
          
           <p>Transfer To:</p>
-          <select name="customers" id="customers1" placeholder="To">
-            {done.map((item, id) => {
-              return (
-                <option key={id} id="option1" value={item.name}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
+          <select name="receivers" id="receivers" value={receiver} onChange={(e)=>{setReceiver(e.target.value)}} required>
+              <option value=""></option>
+              {
+                customers.map((val,key)=>{
+                          return (val.name===sender?
+                              "":
+                              <option id={val.id} value={val.name} key={key}>{val.name}</option>
+                            )
+                          })
+              }
+              </select>
          
-          <label>Amount to transfer</label>
-          <input
-            type="number"
-            value={values.balance}
-            onChange={(e) => setValues({ ...values, balance: e.target.value })}
-            className="amount"
-            placeholder="Enter Amount"
-            required
-          />
-          <input type="submit" className="submitBtn" />
+          <label>Amount</label>
+          <input  placeholder="Rs." onChange={(e)=>{setBal(e.target.value)}} value={bal}/>
+          <button className="submitBtn" type="button" onClick={transfers} >
+        
+          Send</button>
+         
         </form>
       </div>
     </>

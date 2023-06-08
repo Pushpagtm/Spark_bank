@@ -48,7 +48,7 @@ form input {
     color: whitesmoke;
     font-size: 15px;
     font-weight: 500;
-    padding-left: 0;
+  padding: 8px 25px 11px 25px;
     border-radius: 10px;
     outline: none;
     border: none;
