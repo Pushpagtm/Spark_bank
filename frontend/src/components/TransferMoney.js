@@ -22,36 +22,36 @@ function TransferMoney(props) {
 
   const transfers=()=>{
 
-      console.log("Sender",sender);
-      console.log("Receiver",receiver);
-      console.log("Balance",bal);
-      if(sender==="" || receiver===""){
-        correct=false;
-        setSender("");
-        setReceiver("");
-        setBal("");
-        return(alert('Enter all Details.'))
-      }
-      if(bal===""){
-        correct=false;
+      // console.log("Sender",sender);
+      // console.log("Receiver",receiver);
+      // console.log("Balance",bal);
+      // if(sender==="" || receiver===""){
+      //   correct=false;
+      //   setSender("");
+      //   setReceiver("");
+      //   setBal("");
+      //   return(alert('Enter all Details.'))
+      // }
+      // if(bal===""){
+      //   correct=false;
   
-        return(alert('Please Enter Amount.'))}
-        for(const val of customers)
-        {
-          if(val.name===sender){
-            senderBalance=val.balance;
-          }
-        }
+      //   return(alert('Please Enter Amount.'))}
+      //   for(const val of customers)
+      //   {
+      //     if(val.name===sender){
+      //       senderBalance=val.balance;
+      //     }
+      //   }
   
-        console.log("Sender balance",senderBalance);
-        if(senderBalance-bal<0){
-          correct=false;
-          setSender("");
-          setReceiver("");
-          setBal("");
-          return(alert('Not enough balance'))}
+      //   console.log("Sender balance",senderBalance);
+      //   if(senderBalance-bal<0){
+      //     correct=false;
+      //     setSender("");
+      //     setReceiver("");
+      //     setBal("");
+      //     return(alert('Not enough balance'))}
   
-        if(correct===true){
+      //   if(correct===true){
   
       axios.post("http://localhost:8000/transaction",{
         sender:sender,
@@ -59,38 +59,40 @@ function TransferMoney(props) {
         balance:bal
       }).then(()=>{
         console.log("Success");
-      });
+      }).catch((err)=>{
+        console.log(err.message)
+      })
   
-      axios.put("http://localhost:8000/update",{
-        balance:bal,
-        receiver:receiver
-      }).then((response)=>{
-        setCustomers(
-          customers.map((val)=>{
-            return val.name===receiver?
-            {
-              id:val.id,
-              name:val.name,
+      // axios.put("http://localhost:8000/update",{
+      //   balance:bal,
+      //   receiver:receiver
+      // }).then((response)=>{
+      //   setCustomers(
+      //     customers.map((val)=>{
+      //       return val.name===receiver?
+      //       {
+      //         id:val.id,
+      //         name:val.name,
             
-              balance:parseInt(bal)+parseInt(val.balance),
-            }
-            :val.name===sender?
-            {
-              id:val.id,
-              name:val.name,
-              balance:parseInt(val.balance)-parseInt(bal),
-            }
-            :val;
-          })
-        );
+      //         balance:parseInt(bal)+parseInt(val.balance),
+      //       }
+      //       :val.name===sender?
+      //       {
+      //         id:val.id,
+      //         name:val.name,
+      //         balance:parseInt(val.balance)-parseInt(bal),
+      //       }
+      //       :val;
+      //     })
+      //   );
   
-        alert("Successful Transaction");
+      //   alert("Successful Transaction");
       
-        setSender("");
-        setReceiver("");
-        setBal("");
-      });
-    }
+      //   setSender("");
+      //   setReceiver("");
+      //   setBal("");
+      // });
+    // }
   };
   return (
     <>
@@ -103,7 +105,7 @@ function TransferMoney(props) {
               {
                 customers.map((val,key)=>{
                                 return (
-                                  <option value={val.name} id={val.id} key={key}>{val.name}</option>
+                                  <option value={val.id} id={val.id} key={key}>{val.name}</option>
                                 )
                               })
 
@@ -117,7 +119,7 @@ function TransferMoney(props) {
                 customers.map((val,key)=>{
                           return (val.name===sender?
                               "":
-                              <option id={val.id} value={val.name} key={key}>{val.name}</option>
+                              <option id={val.id} value={val.id} key={key}>{val.name}</option>
                             )
                           })
               }
@@ -125,7 +127,7 @@ function TransferMoney(props) {
          
           <label>Amount</label>
           <input  placeholder="Rs." onChange={(e)=>{setBal(e.target.value)}} value={bal}/>
-          <button className="submitBtn" type="button" onClick={transfers} >
+          <button className="submitBtn" type="button" onClick={()=>transfers()} >
         
           Send</button>
          
